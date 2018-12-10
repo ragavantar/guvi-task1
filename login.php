@@ -3,7 +3,7 @@
 header("Content-Type: application/json; charset=UTF-8");
 
 
-$con=mysqli_connect("localhost","u265610040_user","123456","u265610040_guvi");
+$con=mysqli_connect("localhost","u2656100_user","gggaa","65610040_guvi");
 
 $query = "select * from user where email='$_POST[email]' and password='$_POST[password]'";
 $r=mysqli_query($con,$query);
