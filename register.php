@@ -1,6 +1,6 @@
 <?php
 
-$con=mysqli_connect("localhost","u265610040_user","123456","u265610040_guvi");
+$con=mysqli_connect("localhost","u26561_user","hhhhhgggg","u26040_guvi");
 
 $query = "insert into user(email, password) values ('$_POST[email]', '$_POST[password]')";
 $r=mysqli_query($con,$query);
