@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Intern</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div>
+    <input name="email" id="email" placeholder="email"/>
+    <input name="password" id="password" placeholder="password"/>
+    <button onClick="login()">submit</button>
+</div>
+
+<div id="div1"> 
+</div>
+
+<script>
+    function login(){
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        $.ajax({
+    type: 'POST',
+    url: "login.php",
+    data: "email="+email+"&password="+password,
+    success: function(data) {
+                        console.log(data);
+            if(data == 0){alert("failed");}else {
+                console.log(data);
+                obj = JSON.parse(data);
+                                console.log(obj);
+                var tbl=$("<table/>").attr("id","mytable");
+$("#div1").append(tbl);
+
+    var tr="<tr>";
+    var td1="<td>Email</td><td>"+obj["email"]+"</td></tr>";
+    var td2="<tr><td>Password</td><td>"+obj["password"]+"</td></tr>";
+    var td3="<tr><td>Phone</td><td>"+obj["phone"]+"</td></tr>";
+    var td4="<tr><td>DOB</td><td>"+obj["dob"]+"</td></tr>";
+    var td5="<tr><td>Age</td><td>"+obj["age"]+"</td></tr>";
+        var td6="<tr><td>Skills</td><td>"+obj["skills"]+"</td></tr>";
+            var td7="<tr><td>Address</td><td>"+obj["address"]+"</td><tr>";
+                var td8="<tr><td>Nationality</td><td>"+obj["nationality"]+"</td></tr>";
+    
+   $("#mytable").append(tr+td1+td2+td3+td4+td5+td6+td7+td8); 
+  
+
+            }
+        
+    }
+         });
+    }
+</script>
+
+</body>
+
+
+</html>
